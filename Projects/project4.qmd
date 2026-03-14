@@ -1,0 +1,328 @@
+---
+title: "Client Report - Can You Predict That?"
+subtitle: "Course DS 250"
+author: "Jared Wightman"
+format:
+  html:
+    self-contained: true
+    page-layout: full
+    title-block-banner: true
+    toc: true
+    toc-depth: 3
+    toc-location: body
+    number-sections: false
+    html-math-method: katex
+    code-fold: true
+    code-summary: "Show the code"
+    code-overflow: wrap
+    code-copy: hover
+    code-tools:
+        source: false
+        toggle: true
+        caption: See code
+execute: 
+  warning: false
+    
+---
+
+```{python}
+import pandas as pd 
+import numpy as np
+from lets_plot import *
+
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, recall_score, precision_score, precision_recall_curve
+
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import root_mean_squared_error, r2_score
+
+
+
+LetsPlot.setup_html(isolated_frame=True)
+```
+
+
+```{python}
+# import your data here using pandas and the URL
+
+df = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_ml/dwellings_ml.csv")
+
+# df.info()
+# df.head()
+```
+
+## Elevator pitch
+_A SHORT (2-3 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._ (Note: this is not a summary of the project, but a summary of the results.)
+
+_When exploring the data and creating predictive models with the goal of classifying homes built before and after 1980, it was found that features such as amount of stories, living room space, garage type, number of bathrooms, and more were strong predictors of the era the house was built._
+
+## QUESTION|TASK 1
+
+__Create 2-3 charts that evaluate potential relationships between the home variables and `before1980`.__ Explain what you learn from the charts that could help a machine learning algorithm. 
+
+_There are more homes built before 1980 than after, which might skew a predictive model. Homes build after 1980 tend to have more than 1 story, compared to before where 1 is more common. The number of bedrooms per home is about the same pre/post 1980._
+
+```{python}
+
+df['period'] = df['before1980'].map({0: "After 1980", 1: "Before 1980"}) 
+
+(
+    ggplot(df, aes(x="period", fill="period"))
+    + geom_bar(show_legend=False)
+    + scale_fill_manual(values=["navy", "red"])
+    + ggtitle("Number of Homes Before/After 1980")
+    + labs(x="Built Before 1980", y="Count")
+).show()
+
+(
+    ggplot(df, aes(x="stories", fill="period"))
+    + geom_bar(show_legend=False)
+    + facet_grid("period")
+    + scale_fill_manual(values=["navy", "red"])
+    + ggtitle("Home Story Count Before/After 1980")
+    + labs(x="Number of Stories", y="Count")
+).show()
+
+(
+    ggplot(df, aes(x="numbdrm", fill="period"))
+    + geom_bar(show_legend=False)
+    + facet_grid("period")
+    + scale_fill_manual(values=["navy", "red"])
+    + ggtitle("Home Bedroom Count Before/After 1980")
+    + labs(x="Number of Bedrooms", y="Count")
+).show()
+
+df = df.drop(columns=["period", "parcel", "yrbuilt"])
+```
+
+
+## QUESTION|TASK 2
+
+__Build a classification model labeling houses as being built “before 1980” or “during or after 1980”.__ Your goal is to reach or exceed 90% accuracy. Explain your final model choice (algorithm, tuning parameters, etc) and describe what other models you tried.  
+
+_I chose a Random Forest Ensemble for my model based on the goal (binary classification), the size of the dataset (small) and the number of features (large). The parameters for the model are standard._
+
+```{python}
+
+X = df.drop(columns=["before1980"])
+y = df["before1980"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+clf_forest = RandomForestClassifier(
+    criterion="entropy",
+    random_state=42,
+    min_samples_leaf=5,
+)
+
+clf_forest.fit(X_train, y_train)
+
+```
+
+
+## QUESTION|TASK 3
+
+__Justify your classification model by discussing the most important features selected by your model.__ This discussion should include a feature importance chart and a description of the features. 
+
+_The top five "weightiest" features that predict whether a home has been built before 1980 are as follows: Single-Story Type Homes (more common pre-1980), Size of Living Area (larger=newer), Number of Stories (see first), Garage Type (attached),  Number of Bathrooms (more=newer). See chart below:_
+
+```{python}
+print("Random Forest Importances: ")
+importances = pd.Series(
+    clf_forest.feature_importances_,
+    index=X_train.columns
+).sort_values(ascending=False)
+print(importances.head(10))
+
+```
+
+
+## QUESTION|TASK 4
+
+__Describe the quality of your classification model using 2-3 different evaluation metrics.__ You also need to explain how to interpret each of the evaluation metrics you use.  
+
+_Below is a confusion matrix and the accuracy, recall, and precision metrics. The metrics describe different relationships between True/False and Positive/Negative predicitons, seen in the confusion matrix. Accuracy = True Predictions/Total Predictions, Recall = True Positives/Actual Positives, and Precision = True Positives/Predicted Positives._
+
+```{python}
+
+""" 
+  CONFUSION MATRIX GUIDE
+        Predicted
+          0    1
+Actual 0  TN   FP
+       1  FN   TP
+"""
+y_pred = clf_forest.predict(X_test)
+print("  [[TN  FP]\n   [FN  TP]]")
+print(confusion_matrix(y_test, y_pred))
+
+print("\nACCURACY: ")
+print(accuracy_score(y_test, y_pred))
+
+print("\nRECALL: ")
+print(recall_score(y_test, y_pred))
+
+print("\nPRECISION: ")
+print(precision_score(y_test, y_pred))
+```
+
+---
+
+## STRETCH QUESTION|TASK 1
+
+__Repeat the classification model using 3 different algorithms.__ Display their Feature Importance, and Decision Matrix. Explian the differences between the models and which one you would recommend to the Client.   
+
+_The models tested were Random Forest, Decision Tree, and K-Nearest Neighbors. The Decision Tree and Random Forest are similar in how they choose outcomes, the first being a single robust decision maker and the second being an ensemble of limited decision trees that vote on an outcome. The K-Nearest Neighbors model is much simpler, calculating relationship distances between True/False data and voting on an outcome. The Random Forest is the most accurate of the 3 and thus what is recommended for the client._
+
+```{python}
+# Include and execute your code here
+clf_tree = DecisionTreeClassifier(
+    criterion="entropy",
+    random_state=42,
+    min_samples_leaf=5,
+)
+
+clf_tree.fit(X_train, y_train)
+y_pred = clf_tree.predict(X_test)
+
+print("Decision Tree Importances: ")
+importances = pd.Series(
+    clf_tree.feature_importances_,
+    index=X_train.columns
+).sort_values(ascending=False)
+print(importances.head(10))
+
+print(confusion_matrix(y_test, y_pred))
+print("\nACCURACY: ")
+print(accuracy_score(y_test, y_pred))
+
+
+clf_knn = KNeighborsClassifier(
+    n_neighbors=5,    # You can adjust k
+    weights='uniform', # 'uniform' or 'distance'
+    metric='minkowski', # default distance metric (Euclidean)
+    p=2
+)
+
+clf_knn.fit(X_train, y_train)
+y_pred = clf_knn.predict(X_test)
+
+print("\nKNN Importances: \n N/A")
+print(confusion_matrix(y_test, y_pred))
+print("\nACCURACY: ")
+print(accuracy_score(y_test, y_pred))
+```
+
+
+## STRETCH QUESTION|TASK 2
+
+__Join the `dwellings_neighborhoods_ml.csv` data to the `dwelling_ml.csv` on the `parcel` column to create a new dataset. Duplicate the code for the stretch question above and update it to use this data.__ Explain the differences and if this changes the model you recomend to the Client.   
+
+_Adding more relevant data made the models each more accurate. The Decision Tree model has the best accuracy instead of the Random Forest model, so the recommendation changes to the former._
+
+```{python}
+# Include and execute your code here
+
+df1 = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_ml/dwellings_ml.csv")
+df2 = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_neighborhoods_ml/dwellings_neighborhoods_ml.csv")
+dfj = pd.merge(df1, df2, on="parcel")
+dfj = dfj.drop(columns=["parcel", "yrbuilt"])
+
+
+X = dfj.drop(columns=["before1980"])
+y = dfj["before1980"]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+clf_forest = RandomForestClassifier(
+    criterion="entropy",
+    random_state=42,
+    min_samples_leaf=5,
+)
+clf_forest.fit(X_train, y_train)
+y_pred = clf_forest.predict(X_test)
+print("\nRandom Forest Importances: ")
+importances = pd.Series(
+    clf_forest.feature_importances_,
+    index=X_train.columns
+).sort_values(ascending=False)
+print(importances.head(10))
+print(confusion_matrix(y_test, y_pred))
+print("\nACCURACY: ")
+print(accuracy_score(y_test, y_pred))
+
+clf_tree = DecisionTreeClassifier(
+    criterion="entropy",
+    random_state=42,
+    min_samples_leaf=5,
+)
+clf_tree.fit(X_train, y_train)
+y_pred = clf_tree.predict(X_test)
+print("\nDecision Tree Importances: ")
+importances = pd.Series(
+    clf_tree.feature_importances_,
+    index=X_train.columns
+).sort_values(ascending=False)
+print(importances.head(10))
+print(confusion_matrix(y_test, y_pred))
+print("\nACCURACY: ")
+print(accuracy_score(y_test, y_pred))
+
+clf_knn = KNeighborsClassifier(
+    n_neighbors=5,    # You can adjust k
+    weights='uniform', # 'uniform' or 'distance'
+    metric='minkowski', # default distance metric (Euclidean)
+    p=2
+)
+clf_knn.fit(X_train, y_train)
+y_pred = clf_knn.predict(X_test)
+print("\nKNN Importances: \n N/A")
+print(confusion_matrix(y_test, y_pred))
+print("\nACCURACY: ")
+print(accuracy_score(y_test, y_pred))
+```
+
+
+## STRETCH QUESTION|TASK 3
+
+__Can you build a model that predicts the year a house was built?__ Explain the model and the evaluation metrics you would use to determine if the model is good.  
+
+_I used another Random Forest Model, but this time for regression. The metrics used were RMSE (17.15), which explains how "off" the prediction is on average in years, and R^2 (0.78), which describes how well the model explains variation in the data._
+
+```{python}
+
+df = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_ml/dwellings_ml.csv")
+
+df = df.drop(columns=["parcel", "before1980"])
+
+X = df.drop(columns=["yrbuilt"])
+y = df["yrbuilt"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+clf_forest_reg = RandomForestRegressor(
+    random_state=42,
+    min_samples_leaf=5,
+)
+
+clf_forest_reg.fit(X_train, y_train)
+
+y_pred = clf_forest_reg.predict(X_test)
+
+print("\nRandom Forest Regressor Importances: ")
+importances = pd.Series(
+    clf_forest_reg.feature_importances_,
+    index=X_train.columns
+).sort_values(ascending=False)
+print(importances.head(10))
+
+print("RMSE:", root_mean_squared_error(y_test, y_pred))
+print("R^2:", r2_score(y_test, y_pred))
+
+
+
+```
+
+---
