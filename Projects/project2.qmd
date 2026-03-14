@@ -1,0 +1,258 @@
+---
+title: "Client Report - Late Flights & Missing Data (JSON)"
+subtitle: "Course DS 250"
+author: "Jared Wightman"
+format:
+  html:
+    self-contained: true
+    page-layout: full
+    title-block-banner: true
+    toc: true
+    toc-depth: 3
+    toc-location: body
+    number-sections: false
+    html-math-method: katex
+    code-fold: true
+    code-summary: "Show the code"
+    code-overflow: wrap
+    code-copy: hover
+    code-tools:
+        source: false
+        toggle: true
+        caption: See code
+execute: 
+  warning: false
+    
+---
+
+```{python}
+import pandas as pd
+import numpy as np
+from lets_plot import *
+
+LetsPlot.setup_html(isolated_frame=True)
+```
+
+
+```{python}
+# Learn more about Code Cells: https://quarto.org/docs/reference/cells/cells-jupyter.html
+
+# Include and execute your code here
+df = pd.read_json("https://github.com/byuidatascience/data4missing/raw/master/data-raw/flights_missing/flights_missing.json")
+
+#df["airport_code"].value_counts()
+#df.info() # 924 entries
+#df.describe()
+```
+
+## Elevator pitch
+_A SHORT (2-3 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._ (Note: this is not a summary of the project, but a summary of the results.)
+
+_A Client has requested this analysis and this is your one shot of what you would say to your boss in a 2 min elevator ride before he takes your report and hands it to the client._
+
+_From 2005 to 2015, information from 7 airports was gathered in regards to flights and delays. It was found that the best airport to avoid delays is SLC, while the worst is SFO. The best seasons to avoid delays is Fall. It was also found everywhere that security delays are exceedingly rare compared to other types._
+
+## QUESTION|TASK 1
+
+__Fix all of the varied missing data types in the data to be consistent (all missing values should be displayed as “NaN”).__ In your report include one record example (one row) from your new data, in the raw JSON format. Your example should display the "NaN" for at least one missing value.__  
+
+_There are 221 entries that have at least one missing value. One example is printed below:_
+
+```{python}
+# Include and execute your code here
+
+#dfn = df.replace([-999, "1500+", "", "n/a"], np.nan)
+dfn = df.replace([-999, "", "n/a", "null", pd.NA], np.nan)
+#dfn[dfn.isna().any(axis=1)].info()
+example_str = (dfn[dfn.isna().any(axis=1)].head(1)).to_json()
+example_str
+
+```
+
+
+## QUESTION|TASK 2
+
+__Which airport has the worst delays?__ Describe the metric you chose, and why you chose it to determine the “worst” airport. Your answer should include a summary table that lists (for each airport) the total number of flights, total number of delayed flights, proportion of delayed flights, and average delay time in hours.   
+
+_The worst airport for delays is the San Francisco International Airport (SFO). It has the highest average delay rate (0.26), the second highest average delay time (1.02 hours), and the highest overall time delayed per flight (0.27 hours). These values were taken from the total delays and flights rather than the individual metrics because said metrics are historical and aren't subject to rapid change. See table below:_
+
+```{python}
+# Include and execute your code here
+
+# Create new columns for data analysis
+dfn["delay_rate"] = dfn["num_of_delays_total"] / dfn["num_of_flights_total"]
+dfn["avg_hours_delay"] = (dfn["minutes_delayed_total"] / 60 / dfn["num_of_delays_total"])
+dfn["avg_hours_delay_per_flight"] = dfn["avg_hours_delay"] * dfn["delay_rate"]
+
+# Averages values and makes the index "airport_code", turns data for multiple years into an average for each airport
+dfa = dfn.groupby("airport_code").mean(numeric_only=True) 
+# worst_dl_avg = dfa.loc[dfa["delay_rate"].idxmax()]
+# worst_hours_avg = dfa.loc[dfa["avg_hours_delay"].idxmax()]
+worst_hours_avg_flights = dfa.loc[dfa["avg_hours_delay_per_flight"].idxmax()]
+
+
+# Make new df with important/relevant data
+dft = dfa[["num_of_flights_total", "num_of_delays_total", "delay_rate", "avg_hours_delay"]]
+dft = dft.sort_values("delay_rate", ascending=False)
+dft
+
+
+
+
+```
+
+
+
+## QUESTION|TASK 3
+
+__What is the best month to fly if you want to avoid delays of any length?__ Describe the metric you chose and why you chose it to calculate your answer. Include one chart to help support your answer, with the x-axis ordered by month. (To answer this question, you will need to remove any rows that are missing the `Month` variable.)  
+
+_The best month overall to avoid delays September, though not by a marginal amount. The best season to avoid delays is Fall followed by Spring. This was calculated by average delay rate per year. See chart below:_
+
+```{python}
+# Include and execute your code here
+
+
+# Group by month and calculate averages
+dfm = dfn.groupby("month", as_index=False).mean(numeric_only=True)
+
+# Reorder month column
+month_order = ["January","February","March","April","May","June","July",
+               "August","September","October","November","December"]
+
+dfm["month"] = pd.Categorical(dfm["month"], categories=month_order, ordered=True)
+
+# Create bar chart
+(
+    ggplot(dfm, aes(x="month", y="delay_rate"))
+    + geom_bar(stat="identity", fill="steelblue")
+    + labs(
+        title="Monthly Delay Rate",
+        x="Month",
+        y="Delay Rate"
+    )
+)
+```
+
+
+
+## QUESTION|TASK 4
+
+According to the BTS website, the “Weather” category only accounts for severe weather delays. Mild weather delays are not counted in the “Weather” category, but are actually included in both the “NAS” and “Late-Arriving Aircraft” categories. __Your job is to create a new column that calculates the total number of flights delayed by weather (both severe and mild).__ You will need to replace all the missing values in the Late Aircraft variable with the mean. Show your work by printing the first 5 rows of data in a table. Use these three rules for your calculations:  
+
+    a. 100% of delayed flights in the Weather category are due to weather  
+    a. 30% of all delayed flights in the Late-Arriving category are due to weather  
+    a. From April to August, 40% of delayed flights in the NAS category are due to weather. The rest of the months, the proportion rises to 65%    
+
+_See sample table below:_
+
+```{python}
+# Include and execute your code here
+
+# Fill NaN values in "late aircraft" with the mean for the column
+dfn["num_of_delays_late_aircraft"] = dfn["num_of_delays_late_aircraft"].fillna(
+  dfn["num_of_delays_late_aircraft"].mean(numeric_only=True)
+  )
+
+# Create mask for differing month weights
+special_months = ["April", "May", "June", "August"]
+month_mask = dfn["month"].isin(special_months)
+
+# Sum up all weather delays into new column
+dfn["num_of_delays_all_weather"] = round(
+  dfn["num_of_delays_weather"] + 
+  0.30 * dfn["num_of_delays_late_aircraft"] + 
+  np.where( # For each value, return:
+        dfn["month"].isin(month_mask), # Condition/"if"
+        0.40 * dfn["num_of_delays_nas"].fillna(0), # "then"
+        0.65 * dfn["num_of_delays_nas"].fillna(0) # "else"
+    )
+  )
+
+dfn.head(5)
+
+
+```
+
+
+## QUESTION|TASK 5
+
+__Using the new weather variable calculated above, create a barplot showing the proportion of all flights that are delayed by weather at each airport. Describe what you learn from this graph.__  
+
+_All the airports have proportional weather delays falling between 0.04 and 0.11. SFO is the worst offender of weather delays (11%) while SLC is the best (4%). See chart below:_
+```{python}
+# Include and execute your code here
+
+dfn["proportion_weather_delays"] = dfn["num_of_delays_all_weather"] / dfn["num_of_flights_total"]
+dfw = dfn.groupby("airport_code", as_index=False).mean(numeric_only=True)
+
+(
+    ggplot(dfw, aes(x="airport_code", y="proportion_weather_delays"))
+    + geom_bar(stat="identity", fill="steelblue")
+    + labs(
+        title="Proportion of Weather Delays to Flights (Avg)",
+        x="Airport",
+        y="Weather Delays/Flight"
+    )
+)
+```
+
+
+---
+
+
+## STRETCH QUESTION|TASK 1
+
+__Which delay is the worst delay?__ Create a similar analysis as above for Weather Delay with: Carrier Delay and Security Delay. Compare the proportion of delay for each of the three categories in a Chart and a Table. Describe your results.
+
+_Weather delays are usually more common than Carrier delays. Security delays are very rare compared to the other two. See table and chart below:_
+
+```{python}
+# Include and execute your code here
+
+dfn["proportion_weather_delays"] = dfn["num_of_delays_all_weather"] / dfn["num_of_flights_total"]
+dfn["proportion_carrier_delays"] = dfn["num_of_delays_carrier"].where(
+  dfn["num_of_delays_carrier"] != "1500+",
+  1500
+  ).astype(float) / dfn["num_of_flights_total"]
+
+dfn["proportion_security_delays"] = dfn["num_of_delays_security"] / dfn["num_of_flights_total"]
+
+dfp = dfn[["airport_code", "proportion_weather_delays", "proportion_carrier_delays", "proportion_security_delays"]]
+
+dfp = dfp.groupby("airport_code", as_index=False).mean(numeric_only=True)
+dfp
+
+```
+
+```{python}
+
+# Turn multiple columns into a single categorical feature, like reverse of one-hot encoding. Adds many rows.
+dfp_long = dfp.melt(
+    id_vars="airport_code", # Keep as-is
+    value_vars=["proportion_weather_delays", "proportion_carrier_delays", "proportion_security_delays"], # New categorical vars in new column
+    var_name="delay_type", # New column to hold cat-vars
+    value_name="proportion" # New column to hold data
+)
+
+# Remap/rewrite names of categories
+dfp_long["delay_type"] = dfp_long["delay_type"].map({
+    "proportion_weather_delays": "Weather",
+    "proportion_carrier_delays": "Carrier",
+    "proportion_security_delays": "Security"
+})
+
+(
+    ggplot(dfp_long, aes(x="airport_code", y="proportion", fill="delay_type"))
+    + geom_bar(stat="identity", position="dodge")
+    + labs(
+        title="Proportion of Delays by Airport",
+        x="Airport",
+        y="Proportion of Flights Delayed",
+        fill="Delay Type"
+    )
+)
+
+```
+---
+
