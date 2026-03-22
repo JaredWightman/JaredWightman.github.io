@@ -57,7 +57,7 @@ df = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4dwellin
 ## Elevator pitch
 _A SHORT (2-3 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._ (Note: this is not a summary of the project, but a summary of the results.)
 
-_When exploring the data and creating predictive models with the goal of classifying homes built before and after 1980, it was found that features such as amount of stories, living room space, garage type, number of bathrooms, and more were strong predictors of the era the house was built._
+_Various features were explored and used to create models which would predict whether or not homes in the data were built before or after 1980. The best model had an accuracy of 92%. It was found that the strongest predictors of the house era were: amount of stories, living room space, garage type, and number of bathrooms._
 
 ## QUESTION|TASK 1
 
@@ -127,16 +127,18 @@ clf_forest.fit(X_train, y_train)
 
 __Justify your classification model by discussing the most important features selected by your model.__ This discussion should include a feature importance chart and a description of the features. 
 
-_The top five "weightiest" features that predict whether a home has been built before 1980 are as follows: Single-Story Type Homes (more common pre-1980), Size of Living Area (larger=newer), Number of Stories (see first), Garage Type (attached),  Number of Bathrooms (more=newer). See chart below:_
+_The top five "weightiest" features that predict whether a home has been built before 1980 are as follows: Single-Story Type Homes (more common pre-1980), Size of Living Area (larger=newer), Number of Stories (see first), Garage Type (attached), Number of Bathrooms (more=newer). This was determined using the model framework's native calculation for Mean Decrease in Impurity (MDI) by percent. The top feature contributes 11% of the total reduction in impurity across all trees in the forest. See chart below:_
 
 ```{python}
-print("Random Forest Importances: ")
+
 importances = pd.Series(
     clf_forest.feature_importances_,
     index=X_train.columns
 ).sort_values(ascending=False)
-print(importances.head(10))
 
+importance_df = importances.reset_index()
+importance_df.columns = ['Feature', 'Importance']
+importance_df.head(10)
 ```
 
 
@@ -144,7 +146,7 @@ print(importances.head(10))
 
 __Describe the quality of your classification model using 2-3 different evaluation metrics.__ You also need to explain how to interpret each of the evaluation metrics you use.  
 
-_Below is a confusion matrix and the accuracy, recall, and precision metrics. The metrics describe different relationships between True/False and Positive/Negative predicitons, seen in the confusion matrix. Accuracy = True Predictions/Total Predictions, Recall = True Positives/Actual Positives, and Precision = True Positives/Predicted Positives._
+_Below is a confusion matrix and the accuracy, recall, and precision metrics. The metrics describe different relationships between True/False and Positive/Negative predicitons, seen in the confusion matrix. Accuracy = True Predictions/Total Predictions (overall correctness of predictions), Recall = True Positives/Actual Positives (how many positives were correctly predicted), and Precision = True Positives/Predicted Positives (how many predicted positives were correct)._
 
 ```{python}
 
