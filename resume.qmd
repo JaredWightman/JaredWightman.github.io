@@ -1,89 +1,121 @@
 ---
-layout: cv
-title: Isaac Newtons's CV
+title: "Jared Wightman"
+format:
+  html:
+    toc: false
+    theme: cosmo
 ---
-# Isaac Newton
-Physicist, Mathematician, Cambridge professor.
 
-<div id="webaddress">
-<a href="isaac@applesdofall.org">isaac@applesdofall.org</a>
-| <a href="http://en.wikipedia.org/wiki/Isaac_Newton">My wikipedia page</a>
-</div>
+## Contact
 
+- 📧 wig20001@byui.edu  
+- 🔗 https://linkedin.com/in/jaredwightman  
+- 💻 https://github.com/JaredWightman  
 
-## Currently
-
-Standing on the shoulders of giants
-
-### Specialized in
-
-Laws of motion, gravitation, minting coins, disliking [Robert Hooke](http://en.wikipedia.org/wiki/Robert_Hooke)
-
-
-### Research interests
-
-Cooling, power series, optics, alchemy, planetary motions, apples.
-
+---
 
 ## Education
 
-`1654-1660`
-__The King's School, Grantham.__
+**Bachelor of Science, Computer Engineering**  
+*Brigham Young University – Idaho* — Rexburg, Idaho  
+Expected: July 2027  
 
-`June 1661 - now`
-__Trinity College, Cambridge__
+- **GPA:** 3.8  
+- **Relevant Coursework:** Embedded Systems, Digital System Design, Electric Circuit Analysis II, Electric Circuit Fab & Eval Lab, Applied Programming, Machine Learning  
+- **Societies:** IEEE, BYUI Computing Society, BYUI Amateur Radio Society, BYUI Interfaith Leadership Society  
 
-- Sizar
+---
 
-`1667 - death`
-__Trinity College, Cambridge__
+## Skills
 
-- Fellow
+::: {.columns}
+::: {.column width="33%"}
+**Software**
 
+- Vivado  
+- Visual Studio  
+- STM32CubeIDE  
+- Arduino IDE  
+- JetBrains IDE  
+- Logisim  
+- LTSpice  
+- KiCad  
+:::
 
+::: {.column width="33%"}
+**Hardware**
 
-## Awards
+- Soldering  
+- PCBs  
+- Oscilloscope  
+- Logic Analyzer  
+:::
 
-`2012`
-President, *Royal Society*, London, UK
+::: {.column width="33%"}
+**Languages**
 
-Associate, *French Academy of Science*, Paris, France
+- C/C++  
+- Python  
+- ASM  
+- Verilog  
+:::
+:::
 
+---
 
+## Projects
 
-## Publications
+### Lighting Control Console  
+*KiCad, STM32CubeIDE/C*  
+- Collaborated on a team of 4 to create a DMX lighting console  
+- Designed software for multiple inputs and outputs  
+- Verified schematics and laid out a UART–RS485 daughterboard  
+- Assisted with assembly and soldering  
 
-<!-- A list is also available [online](http://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
+### LED Matrix Controller  
+*Vivado, Verilog, ASM*  
+- Built a microprocessor simulation on a Basys3 FPGA  
+- Interfaced with a HUB75 LED matrix  
+- Implemented a 16-bit CPU executing RISC-style instructions  
 
-### Journals
+### Chessboard  
+*Unity, C#*  
+- Developed an expandable chess game in a team of 5  
+- Served as version control manager  
 
-`1669`
-Newton Sir I, De analysi per æquationes numero terminorum infinitas. 
+### Photoresistor Mouse  
+*STM32CubeIDE/C*  
+- Designed a light-based input device using an STM32 Nucleo-64  
+- Controlled an LCD cursor using a photoresistor grid  
 
-`1669`
-Lectiones opticæ.
+### Treble/Bass PCB  
+*Altium*  
+- Designed and assembled a PCB for audio signal processing  
+- Integrated resistors, capacitors, and op-amp circuitry  
 
-etc. etc. etc.
+### Car Signal System  
+*Vivado, SystemVerilog*  
+- Simulated vehicle blinkers and brake lights on FPGA hardware  
 
-### Patents
+### Simulated CPU  
+*Logisim*  
+- Built an 8-bit CPU with arithmetic operations and branching  
+- Output to ASCII display  
 
-`2012`
-Infinitesimal calculus for solutions to physics problems, [SMBC](http://www.techdirt.com/articles/20121011/09312820678/if-patents-had-been-around-time-newton.shtml) patent 001
+---
 
+## Volunteer Experience
 
-## Occupation
+### Missionary Service (Full-Time)  
+*The Church of Jesus Christ of Latter-day Saints* — Kennewick, WA  
+Aug 2020 – Aug 2022  
 
-`1600`
-__Royal Mint__, London
+- Worked 70+ hours/week in teaching, planning, and service  
+- Communicated with diverse groups in varied situations  
 
-- Warden
-- Minted coins
+### Tech Crew (Part-Time)  
+*Timpanogos Community Theater* — Highland, UT  
+Jun 2017 – Aug 2018  
 
-`1600`
-__Lucasian professor of Mathematics__, Cambridge University
-
-
-
-<!-- ### Footer
-
-Last updated: May 2013 -->
+- Operated lighting systems and stage equipment  
+- Assisted with setup, teardown, and rehearsals  
