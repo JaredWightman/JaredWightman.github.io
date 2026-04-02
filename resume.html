@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Isaac Newtons’s CV – Jared Wightman - Data Science Portfolio</title>
+<title>Jared Wightman – Jared Wightman - Data Science Portfolio</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -40,14 +40,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-47d903d3babc528bf80cb23d857041b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c2164554c1379d2ab2935fcbcc4f3b0b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-47d903d3babc528bf80cb23d857041b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-515419fe2726f5e59b6f4b073f47b183.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,169 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
-      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -303,37 +137,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#isaac-newton" id="toc-isaac-newton" class="nav-link active" data-scroll-target="#isaac-newton">Isaac Newton</a>
-  <ul class="collapse">
-  <li><a href="#currently" id="toc-currently" class="nav-link" data-scroll-target="#currently">Currently</a>
-  <ul class="collapse">
-  <li><a href="#specialized-in" id="toc-specialized-in" class="nav-link" data-scroll-target="#specialized-in">Specialized in</a></li>
-  <li><a href="#research-interests" id="toc-research-interests" class="nav-link" data-scroll-target="#research-interests">Research interests</a></li>
-  </ul></li>
-  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a></li>
-  <li><a href="#awards" id="toc-awards" class="nav-link" data-scroll-target="#awards">Awards</a></li>
-  <li><a href="#publications" id="toc-publications" class="nav-link" data-scroll-target="#publications">Publications</a>
-  <ul class="collapse">
-  <li><a href="#journals" id="toc-journals" class="nav-link" data-scroll-target="#journals">Journals</a></li>
-  <li><a href="#patents" id="toc-patents" class="nav-link" data-scroll-target="#patents">Patents</a></li>
-  </ul></li>
-  <li><a href="#occupation" id="toc-occupation" class="nav-link" data-scroll-target="#occupation">Occupation</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Isaac Newtons’s CV</h1>
+<h1 class="title">Jared Wightman</h1>
 </div>
 
 
@@ -350,66 +160,151 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="isaac-newton" class="level1">
-<h1>Isaac Newton</h1>
-<p>Physicist, Mathematician, Cambridge professor.</p>
-<div id="webaddress">
-<p><a href="isaac@applesdofall.org">isaac@applesdofall.org</a> | <a href="http://en.wikipedia.org/wiki/Isaac_Newton">My wikipedia page</a></p>
-</div>
-<section id="currently" class="level2">
-<h2 class="anchored" data-anchor-id="currently">Currently</h2>
-<p>Standing on the shoulders of giants</p>
-<section id="specialized-in" class="level3">
-<h3 class="anchored" data-anchor-id="specialized-in">Specialized in</h3>
-<p>Laws of motion, gravitation, minting coins, disliking <a href="http://en.wikipedia.org/wiki/Robert_Hooke">Robert Hooke</a></p>
-</section>
-<section id="research-interests" class="level3">
-<h3 class="anchored" data-anchor-id="research-interests">Research interests</h3>
-<p>Cooling, power series, optics, alchemy, planetary motions, apples.</p>
-</section>
+<section id="contact" class="level2">
+<h2 class="anchored" data-anchor-id="contact">Contact</h2>
+<ul>
+<li>📧 wig20001@byui.edu<br>
+</li>
+<li>🔗 https://linkedin.com/in/jaredwightman<br>
+</li>
+<li>💻 https://github.com/JaredWightman</li>
+</ul>
+<hr>
 </section>
 <section id="education" class="level2">
 <h2 class="anchored" data-anchor-id="education">Education</h2>
-<p><code>1654-1660</code> <strong>The King’s School, Grantham.</strong></p>
-<p><code>June 1661 - now</code> <strong>Trinity College, Cambridge</strong></p>
+<p><strong>Bachelor of Science, Computer Engineering</strong><br>
+<em>Brigham Young University – Idaho</em> — Rexburg, Idaho<br>
+Expected: July 2027</p>
 <ul>
-<li>Sizar</li>
+<li><strong>GPA:</strong> 3.8<br>
+</li>
+<li><strong>Relevant Coursework:</strong> Embedded Systems, Digital System Design, Electric Circuit Analysis II, Electric Circuit Fab &amp; Eval Lab, Applied Programming, Machine Learning<br>
+</li>
+<li><strong>Societies:</strong> IEEE, BYUI Computing Society, BYUI Amateur Radio Society, BYUI Interfaith Leadership Society</li>
 </ul>
-<p><code>1667 - death</code> <strong>Trinity College, Cambridge</strong></p>
+<hr>
+</section>
+<section id="skills" class="level2">
+<h2 class="anchored" data-anchor-id="skills">Skills</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Software</strong></p>
 <ul>
-<li>Fellow</li>
+<li>Vivado<br>
+</li>
+<li>Visual Studio<br>
+</li>
+<li>STM32CubeIDE<br>
+</li>
+<li>Arduino IDE<br>
+</li>
+<li>JetBrains IDE<br>
+</li>
+<li>Logisim<br>
+</li>
+<li>LTSpice<br>
+</li>
+<li>KiCad<br>
+</li>
 </ul>
-</section>
-<section id="awards" class="level2">
-<h2 class="anchored" data-anchor-id="awards">Awards</h2>
-<p><code>2012</code> President, <em>Royal Society</em>, London, UK</p>
-<p>Associate, <em>French Academy of Science</em>, Paris, France</p>
-</section>
-<section id="publications" class="level2">
-<h2 class="anchored" data-anchor-id="publications">Publications</h2>
-<!-- A list is also available [online](http://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
-<section id="journals" class="level3">
-<h3 class="anchored" data-anchor-id="journals">Journals</h3>
-<p><code>1669</code> Newton Sir I, De analysi per æquationes numero terminorum infinitas.</p>
-<p><code>1669</code> Lectiones opticæ.</p>
-<p>etc. etc. etc.</p>
-</section>
-<section id="patents" class="level3">
-<h3 class="anchored" data-anchor-id="patents">Patents</h3>
-<p><code>2012</code> Infinitesimal calculus for solutions to physics problems, <a href="http://www.techdirt.com/articles/20121011/09312820678/if-patents-had-been-around-time-newton.shtml">SMBC</a> patent 001</p>
-</section>
-</section>
-<section id="occupation" class="level2">
-<h2 class="anchored" data-anchor-id="occupation">Occupation</h2>
-<p><code>1600</code> <strong>Royal Mint</strong>, London</p>
+</div><div class="column" style="width:33%;">
+<p><strong>Hardware</strong></p>
 <ul>
-<li>Warden</li>
-<li>Minted coins</li>
+<li>Soldering<br>
+</li>
+<li>PCBs<br>
+</li>
+<li>Oscilloscope<br>
+</li>
+<li>Logic Analyzer<br>
+</li>
 </ul>
-<p><code>1600</code> <strong>Lucasian professor of Mathematics</strong>, Cambridge University</p>
-<!-- ### Footer
-
-Last updated: May 2013 -->
+</div><div class="column" style="width:33%;">
+<p><strong>Languages</strong></p>
+<ul>
+<li>C/C++<br>
+</li>
+<li>Python<br>
+</li>
+<li>ASM<br>
+</li>
+<li>Verilog<br>
+</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="projects" class="level2">
+<h2 class="anchored" data-anchor-id="projects">Projects</h2>
+<section id="lighting-control-console" class="level3">
+<h3 class="anchored" data-anchor-id="lighting-control-console">Lighting Control Console</h3>
+<p><em>KiCad, STM32CubeIDE/C</em><br>
+- Collaborated on a team of 4 to create a DMX lighting console<br>
+- Designed software for multiple inputs and outputs<br>
+- Verified schematics and laid out a UART–RS485 daughterboard<br>
+- Assisted with assembly and soldering</p>
+</section>
+<section id="led-matrix-controller" class="level3">
+<h3 class="anchored" data-anchor-id="led-matrix-controller">LED Matrix Controller</h3>
+<p><em>Vivado, Verilog, ASM</em><br>
+- Built a microprocessor simulation on a Basys3 FPGA<br>
+- Interfaced with a HUB75 LED matrix<br>
+- Implemented a 16-bit CPU executing RISC-style instructions</p>
+</section>
+<section id="chessboard" class="level3">
+<h3 class="anchored" data-anchor-id="chessboard">Chessboard</h3>
+<p><em>Unity, C#</em><br>
+- Developed an expandable chess game in a team of 5<br>
+- Served as version control manager</p>
+</section>
+<section id="photoresistor-mouse" class="level3">
+<h3 class="anchored" data-anchor-id="photoresistor-mouse">Photoresistor Mouse</h3>
+<p><em>STM32CubeIDE/C</em><br>
+- Designed a light-based input device using an STM32 Nucleo-64<br>
+- Controlled an LCD cursor using a photoresistor grid</p>
+</section>
+<section id="treblebass-pcb" class="level3">
+<h3 class="anchored" data-anchor-id="treblebass-pcb">Treble/Bass PCB</h3>
+<p><em>Altium</em><br>
+- Designed and assembled a PCB for audio signal processing<br>
+- Integrated resistors, capacitors, and op-amp circuitry</p>
+</section>
+<section id="car-signal-system" class="level3">
+<h3 class="anchored" data-anchor-id="car-signal-system">Car Signal System</h3>
+<p><em>Vivado, SystemVerilog</em><br>
+- Simulated vehicle blinkers and brake lights on FPGA hardware</p>
+</section>
+<section id="simulated-cpu" class="level3">
+<h3 class="anchored" data-anchor-id="simulated-cpu">Simulated CPU</h3>
+<p><em>Logisim</em><br>
+- Built an 8-bit CPU with arithmetic operations and branching<br>
+- Output to ASCII display</p>
+<hr>
+</section>
+</section>
+<section id="volunteer-experience" class="level2">
+<h2 class="anchored" data-anchor-id="volunteer-experience">Volunteer Experience</h2>
+<section id="missionary-service-full-time" class="level3">
+<h3 class="anchored" data-anchor-id="missionary-service-full-time">Missionary Service (Full-Time)</h3>
+<p><em>The Church of Jesus Christ of Latter-day Saints</em> — Kennewick, WA<br>
+Aug 2020 – Aug 2022</p>
+<ul>
+<li>Worked 70+ hours/week in teaching, planning, and service<br>
+</li>
+<li>Communicated with diverse groups in varied situations</li>
+</ul>
+</section>
+<section id="tech-crew-part-time" class="level3">
+<h3 class="anchored" data-anchor-id="tech-crew-part-time">Tech Crew (Part-Time)</h3>
+<p><em>Timpanogos Community Theater</em> — Highland, UT<br>
+Jun 2017 – Aug 2018</p>
+<ul>
+<li>Operated lighting systems and stage equipment<br>
+</li>
+<li>Assisted with setup, teardown, and rehearsals</li>
+</ul>
 
 
 </section>
@@ -418,19 +313,6 @@ Last updated: May 2013 -->
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

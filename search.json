@@ -453,44 +453,44 @@
   {
     "objectID": "resume.html",
     "href": "resume.html",
-    "title": "Isaac Newtons’s CV",
+    "title": "Jared Wightman",
     "section": "",
-    "text": "Physicist, Mathematician, Cambridge professor.\n\nisaac@applesdofall.org | My wikipedia page\n\n\n\nStanding on the shoulders of giants\n\n\nLaws of motion, gravitation, minting coins, disliking Robert Hooke\n\n\n\nCooling, power series, optics, alchemy, planetary motions, apples.\n\n\n\n\n1654-1660 The King’s School, Grantham.\nJune 1661 - now Trinity College, Cambridge\n\nSizar\n\n1667 - death Trinity College, Cambridge\n\nFellow\n\n\n\n\n2012 President, Royal Society, London, UK\nAssociate, French Academy of Science, Paris, France\n\n\n\n\n\n\n1669 Newton Sir I, De analysi per æquationes numero terminorum infinitas.\n1669 Lectiones opticæ.\netc. etc. etc.\n\n\n\n2012 Infinitesimal calculus for solutions to physics problems, SMBC patent 001\n\n\n\n\n1600 Royal Mint, London\n\nWarden\nMinted coins\n\n1600 Lucasian professor of Mathematics, Cambridge University"
+    "text": "📧 wig20001@byui.edu\n\n🔗 https://linkedin.com/in/jaredwightman\n\n💻 https://github.com/JaredWightman"
   },
   {
-    "objectID": "resume.html#currently",
-    "href": "resume.html#currently",
-    "title": "Isaac Newtons’s CV",
+    "objectID": "resume.html#contact",
+    "href": "resume.html#contact",
+    "title": "Jared Wightman",
     "section": "",
-    "text": "Standing on the shoulders of giants\n\n\nLaws of motion, gravitation, minting coins, disliking Robert Hooke\n\n\n\nCooling, power series, optics, alchemy, planetary motions, apples."
+    "text": "📧 wig20001@byui.edu\n\n🔗 https://linkedin.com/in/jaredwightman\n\n💻 https://github.com/JaredWightman"
   },
   {
     "objectID": "resume.html#education",
     "href": "resume.html#education",
-    "title": "Isaac Newtons’s CV",
-    "section": "",
-    "text": "1654-1660 The King’s School, Grantham.\nJune 1661 - now Trinity College, Cambridge\n\nSizar\n\n1667 - death Trinity College, Cambridge\n\nFellow"
+    "title": "Jared Wightman",
+    "section": "Education",
+    "text": "Education\nBachelor of Science, Computer Engineering\nBrigham Young University – Idaho — Rexburg, Idaho\nExpected: July 2027\n\nGPA: 3.8\n\nRelevant Coursework: Embedded Systems, Digital System Design, Electric Circuit Analysis II, Electric Circuit Fab & Eval Lab, Applied Programming, Machine Learning\n\nSocieties: IEEE, BYUI Computing Society, BYUI Amateur Radio Society, BYUI Interfaith Leadership Society"
   },
   {
-    "objectID": "resume.html#awards",
-    "href": "resume.html#awards",
-    "title": "Isaac Newtons’s CV",
-    "section": "",
-    "text": "2012 President, Royal Society, London, UK\nAssociate, French Academy of Science, Paris, France"
+    "objectID": "resume.html#skills",
+    "href": "resume.html#skills",
+    "title": "Jared Wightman",
+    "section": "Skills",
+    "text": "Skills\n\n\nSoftware\n\nVivado\n\nVisual Studio\n\nSTM32CubeIDE\n\nArduino IDE\n\nJetBrains IDE\n\nLogisim\n\nLTSpice\n\nKiCad\n\n\n\nHardware\n\nSoldering\n\nPCBs\n\nOscilloscope\n\nLogic Analyzer\n\n\n\nLanguages\n\nC/C++\n\nPython\n\nASM\n\nVerilog"
   },
   {
-    "objectID": "resume.html#publications",
-    "href": "resume.html#publications",
-    "title": "Isaac Newtons’s CV",
-    "section": "",
-    "text": "1669 Newton Sir I, De analysi per æquationes numero terminorum infinitas.\n1669 Lectiones opticæ.\netc. etc. etc.\n\n\n\n2012 Infinitesimal calculus for solutions to physics problems, SMBC patent 001"
+    "objectID": "resume.html#projects",
+    "href": "resume.html#projects",
+    "title": "Jared Wightman",
+    "section": "Projects",
+    "text": "Projects\n\nLighting Control Console\nKiCad, STM32CubeIDE/C\n- Collaborated on a team of 4 to create a DMX lighting console\n- Designed software for multiple inputs and outputs\n- Verified schematics and laid out a UART–RS485 daughterboard\n- Assisted with assembly and soldering\n\n\nLED Matrix Controller\nVivado, Verilog, ASM\n- Built a microprocessor simulation on a Basys3 FPGA\n- Interfaced with a HUB75 LED matrix\n- Implemented a 16-bit CPU executing RISC-style instructions\n\n\nChessboard\nUnity, C#\n- Developed an expandable chess game in a team of 5\n- Served as version control manager\n\n\nPhotoresistor Mouse\nSTM32CubeIDE/C\n- Designed a light-based input device using an STM32 Nucleo-64\n- Controlled an LCD cursor using a photoresistor grid\n\n\nTreble/Bass PCB\nAltium\n- Designed and assembled a PCB for audio signal processing\n- Integrated resistors, capacitors, and op-amp circuitry\n\n\nCar Signal System\nVivado, SystemVerilog\n- Simulated vehicle blinkers and brake lights on FPGA hardware\n\n\nSimulated CPU\nLogisim\n- Built an 8-bit CPU with arithmetic operations and branching\n- Output to ASCII display"
   },
   {
-    "objectID": "resume.html#occupation",
-    "href": "resume.html#occupation",
-    "title": "Isaac Newtons’s CV",
-    "section": "",
-    "text": "1600 Royal Mint, London\n\nWarden\nMinted coins\n\n1600 Lucasian professor of Mathematics, Cambridge University"
+    "objectID": "resume.html#volunteer-experience",
+    "href": "resume.html#volunteer-experience",
+    "title": "Jared Wightman",
+    "section": "Volunteer Experience",
+    "text": "Volunteer Experience\n\nMissionary Service (Full-Time)\nThe Church of Jesus Christ of Latter-day Saints — Kennewick, WA\nAug 2020 – Aug 2022\n\nWorked 70+ hours/week in teaching, planning, and service\n\nCommunicated with diverse groups in varied situations\n\n\n\nTech Crew (Part-Time)\nTimpanogos Community Theater — Highland, UT\nJun 2017 – Aug 2018\n\nOperated lighting systems and stage equipment\n\nAssisted with setup, teardown, and rehearsals"
   },
   {
     "objectID": "Projects/project5.html",
@@ -532,7 +532,7 @@
     "href": "Projects/project5.html#questiontask-4",
     "title": "Client Report - The War with Star Wars",
     "section": "QUESTION|TASK 4",
-    "text": "QUESTION|TASK 4\nBuild a machine learning model that predicts whether a person makes more than $50k. Describe your model and report the accuracy.\nThe model is a gradient boosting classifier, chosen for its ability to work with small amounts of data and its ability to “learn” as it’s trained. The parameters were chosen via grid search, or trial-and-error testing (see section commented out). The data removed earlier (“not seen any”) was also added back in to help pick up on extra patterns. The final accuracy is 0.655.\n\n\nShow the code\n# Include and execute your code here\n\ndf_model = df_copy\n\nX = df_model.drop(columns=[\"income_bin_min\", \"above_50k\"])\ny = df_model[\"above_50k\"]\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\nclf_grad = GradientBoostingClassifier(\n    # n_estimators=300,\n    # learning_rate=0.05,\n    # max_depth=3,\n    # min_samples_split=5,\n    # min_samples_leaf=2,\n    # max_features='sqrt',\n    # random_state=42\n    learning_rate = 0.01,\n    max_depth = 3, \n    max_features = None, \n    min_samples_leaf = 1, \n    min_samples_split = 5, \n    n_estimators = 200\n)\n\nclf_grad.fit(X_train, y_train)\ny_pred = clf_grad.predict(X_test)\n\nprint(\"\\nACCURACY: \")\nprint(accuracy_score(y_test, y_pred))\n\n#print(df.info())\n\n\n\nACCURACY: \n0.6554621848739496\n\n\n\n\nShow the code\n# from sklearn.model_selection import GridSearchCV\n# param_grid = {\n#     'n_estimators': [100, 200, 300],\n#     'learning_rate': [0.01, 0.05, 0.1],\n#     'max_depth': [3, 4, 5],\n#     'min_samples_split': [2, 5, 10],\n#     'min_samples_leaf': [1, 2, 4],\n#     'max_features': ['sqrt', 'log2', None]\n# }\n\n# grid = GridSearchCV(\n#     GradientBoostingClassifier(random_state=42),\n#     param_grid,\n#     cv=5,\n#     scoring='accuracy',\n#     n_jobs=-1\n# )\n\n# grid.fit(X_train, y_train)\n# print(grid.best_params_)\n\n# #{'learning_rate': 0.01, 'max_depth': 3, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 200}\n\n\nimportances = pd.Series(\n    clf_grad.feature_importances_,\n    index=X_train.columns\n).sort_values(ascending=False)\nprint(importances.head(10))\n\n\nedu_sect        0.556964\nage_bin_min     0.111760\nid              0.047783\nrank_ep1        0.039731\nop_Emperor-P    0.032683\nrank_ep2        0.027383\nfan_startrek    0.020519\nrank_ep6        0.016887\nrank_ep4        0.015995\ngender_Male     0.015789\ndtype: float64"
+    "text": "QUESTION|TASK 4\nBuild a machine learning model that predicts whether a person makes more than $50k. Describe your model and report the accuracy.\nThe model is a gradient boosting classifier, chosen for its ability to work with small amounts of data and its ability to “learn” as it’s trained. The parameters were chosen via grid search, or trial-and-error testing (see section commented out). The data removed earlier (“not seen any”) was also added back in to help pick up on extra patterns. The final accuracy is 0.655.\n\n\nShow the code\n# Include and execute your code here\n\ndf_model = df_copy\n\nX = df_model.drop(columns=[\"income_bin_min\", \"above_50k\"])\ny = df_model[\"above_50k\"]\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\nclf_grad = GradientBoostingClassifier(\n    # n_estimators=300,\n    # learning_rate=0.05,\n    # max_depth=3,\n    # min_samples_split=5,\n    # min_samples_leaf=2,\n    # max_features='sqrt',\n    # random_state=42\n    learning_rate = 0.01,\n    max_depth = 3, \n    max_features = None, \n    min_samples_leaf = 1, \n    min_samples_split = 5, \n    n_estimators = 200\n)\n\nclf_grad.fit(X_train, y_train)\ny_pred = clf_grad.predict(X_test)\n\nprint(\"\\nACCURACY: \")\nprint(accuracy_score(y_test, y_pred))\n\n#print(df.info())\n\n\n\nACCURACY: \n0.6554621848739496\n\n\n\n\nShow the code\n# from sklearn.model_selection import GridSearchCV\n# param_grid = {\n#     'n_estimators': [100, 200, 300],\n#     'learning_rate': [0.01, 0.05, 0.1],\n#     'max_depth': [3, 4, 5],\n#     'min_samples_split': [2, 5, 10],\n#     'min_samples_leaf': [1, 2, 4],\n#     'max_features': ['sqrt', 'log2', None]\n# }\n\n# grid = GridSearchCV(\n#     GradientBoostingClassifier(random_state=42),\n#     param_grid,\n#     cv=5,\n#     scoring='accuracy',\n#     n_jobs=-1\n# )\n\n# grid.fit(X_train, y_train)\n# print(grid.best_params_)\n\n# #{'learning_rate': 0.01, 'max_depth': 3, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 200}\n\n\nimportances = pd.Series(\n    clf_grad.feature_importances_,\n    index=X_train.columns\n).sort_values(ascending=False)\nprint(importances.head(10))\n\n\nedu_sect        0.556971\nage_bin_min     0.111772\nid              0.047805\nrank_ep1        0.039731\nop_Emperor-P    0.032683\nrank_ep2        0.027381\nfan_startrek    0.020519\nrank_ep6        0.016893\nrank_ep4        0.015819\ngender_Male     0.015771\ndtype: float64"
   },
   {
     "objectID": "Projects/project5.html#stretch-questiontask-1",
